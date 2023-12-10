@@ -30,4 +30,10 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('.error').should('be.visible')
     })
 
+    it('campo telefone fica vazio quando o usuário digita valores não numéricos', function(){
+        cy.get('#phone')
+        .type('Debora')
+        .should('be.empty')
+    })
+
 })
