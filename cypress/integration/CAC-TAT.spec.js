@@ -19,4 +19,15 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.contains('button', 'Enviar').click()
         cy.get('.success').should('be.visible')
     })
+
+    it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', function(){
+        const longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+        cy.get('input[id = "firstName"]').type('Debora')
+        cy.get('input[id = "lastName"]').type('Oliveira')
+        cy.get('input[id = "email"]').type('LoremIpsum')
+        cy.get('textarea[id = "open-text-area"]').type(longText, {delay:0})
+        cy.contains('button', 'Enviar').click()
+        cy.get('.error').should('be.visible')
+    })
+
 })
