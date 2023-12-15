@@ -9,7 +9,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('verifica o título da aplicação', function() {
         cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
     })
-    
+
     it('preenche os campos obrigatórios e envia o formulário', function() {
         const longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
         cy.get('input[id = "firstName"]').type('Debora')
@@ -58,20 +58,20 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         .clear()
         .should('have.value', '')
 
-        cy.get('#email').
-        type('debora.oliveira@gmail.com')
+        cy.get('#email')
+        .type('debora.oliveira@gmail.com')
         .should('have.value', 'debora.oliveira@gmail.com')
         .clear()
         .should('have.value', '')
 
-        cy.get('#phone').
-        type('40028922')
+        cy.get('#phone')
+        .type('40028922')
         .should('have.value', '40028922')
         .clear()
         .should('have.value', '')
 
-        cy.get('#open-text-area').
-        type('Teste')
+        cy.get('#open-text-area')
+        .type('Teste')
         .should('have.value', 'Teste')
         .clear()
         .should('have.value', '')
