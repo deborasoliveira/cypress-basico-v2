@@ -226,5 +226,16 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         })
     })
 
+    it('encontra o gato e demonstra que ele está visível', function(){
+        cy.get('#cat')
+        .invoke('show')
+        .should('be.visible')
+
+        cy.get('#title')
+        .invoke('text', 'CAT TAT')
+
+        cy.get('#subtitle')
+        .invoke('text', 'Always believe in yourself. - The 🐈 Returns ')
+    })
 
 })
