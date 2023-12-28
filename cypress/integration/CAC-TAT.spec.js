@@ -99,9 +99,9 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('envia o formuário com sucesso usando um comando customizado', function(){
         cy.clock()
         cy.fillMandatoryFieldsAndSubmit()
+        cy.get('.success').should('be.visible')
         cy.tick(THREE_SECONDS_IN_MS)
         cy.get('.success').should('not.be.visible')
-        cy.get('.success').should('be.visible')
     })
 
     it('seleciona um produto (YouTube) por seu texto', function (){
@@ -237,5 +237,5 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#subtitle')
         .invoke('text', 'Always believe in yourself. - The 🐈 Returns ')
     })
-
+ 
 })
