@@ -14,7 +14,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         const longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
         cy.get('input[id = "firstName"]').type('Debora')
         cy.get('input[id = "lastName"]').type('Oliveira')
-        cy.get('input[id = "email"]').type('debora.oliveira@gmail.com')
+        cy.get('input[id = "email"]').type('debora@gmail.com')
         cy.get('textarea[id = "open-text-area"]').type(longText, {delay:0})
         cy.contains('button', 'Enviar').click()
         cy.get('.success').should('be.visible')
@@ -39,7 +39,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', function(){
         cy.get('#firstName').type('Debora')
         cy.get('#lastName').type('Oliveira')
-        cy.get('#email').type('debora.oliveira@gmail.com')
+        cy.get('#email').type('debora@gmail.com')
         cy.get('#phone-checkbox').check()
         cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
@@ -59,8 +59,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         .should('have.value', '')
 
         cy.get('#email')
-        .type('debora.oliveira@gmail.com')
-        .should('have.value', 'debora.oliveira@gmail.com')
+        .type('debora@gmail.com')
+        .should('have.value', 'debora@gmail.com')
         .clear()
         .should('have.value', '')
 
